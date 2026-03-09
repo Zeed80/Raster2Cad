@@ -1,0 +1,24 @@
+{
+  "job_id": "f0874b6df7b24d658eb16e69626a21a6",
+  "confidence": 0.9374999999999999,
+  "status": "running",
+  "stage": "artifacts",
+  "resolved_models": {
+    "parser": "qwen3.5:9b",
+    "critic": "qwen3.5:9b",
+    "patcher": "qwen3.5:9b"
+  },
+  "critic_findings": [
+    "Parser model: qwen3.5:9b.",
+    "Domain resolved as piping.",
+    "Objects parsed: 15.",
+    "Texts parsed: 6.",
+    "Geometry primitives parsed: 11.",
+    "Vector entities emitted: 686.",
+    "Review based on generic placeholder inputs.",
+    "Missing pipe size and schedule data.",
+    "No material class specifications detected.",
+    "Elevation coordinates undefined in object list."
+  ],
+  "chat_history": []
+}

@@ -1,0 +1,59 @@
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+backend/.venv/
+backend/.pytest_cache/
+
+# Node
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+
+# Environment and secrets
+.env
+.env.local
+.env.*
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+backend/.env
+frontend/.env.local
+
+# Runtime files
+.codex-logs/
+logs/*
+!logs/.gitkeep
+*.log
+
+# App data
+data/*
+!data/artifacts/
+!data/jobs/
+!data/uploads/
+!data/artifacts/.gitkeep
+!data/jobs/.gitkeep
+!data/uploads/.gitkeep
+data/jobs/*
+data/uploads/*
+data/artifacts/*
+!data/jobs/.gitkeep
+!data/uploads/.gitkeep
+!data/artifacts/.gitkeep
+
+# Coverage and build
+coverage/
+htmlcov/

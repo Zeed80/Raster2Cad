@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "raster2cad-backend"
+version = "0.1.0"
+description = "AI CAD rebuild backend for exact-copy and isometric redraw workflows"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.32.0",
+  "pydantic>=2.9.0",
+  "httpx>=0.28.0",
+  "python-multipart>=0.0.12",
+  "ezdxf>=1.3.0",
+  "numpy>=2.2.0",
+  "opencv-python-headless>=4.11.0",
+  "Pillow>=10.4.0",
+  "PyMuPDF>=1.24.10",
+]
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]

@@ -1,0 +1,42 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8010
+    working_dir: /app
+    environment:
+      DATA_DIR: /app/data
+      JOBS_DIR: /app/data/jobs
+      UPLOADS_DIR: /app/data/uploads
+      ARTIFACTS_DIR: /app/data/artifacts
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      VLLM_BASE_URL: ${VLLM_BASE_URL:-http://host.docker.internal:8000/v1}
+      ENABLE_LIVE_MODEL_CALLS: ${ENABLE_LIVE_MODEL_CALLS:-true}
+      ALLOW_FIXTURE_FALLBACK: ${ALLOW_FIXTURE_FALLBACK:-false}
+      DEFAULT_PROVIDER: ${DEFAULT_PROVIDER:-ollama}
+      DEFAULT_PRIMARY_MODEL: ${DEFAULT_PRIMARY_MODEL:-qwen3.5:35b}
+      PROVIDER_TIMEOUT_S: ${PROVIDER_TIMEOUT_S:-240}
+      OLLAMA_NUM_CTX: ${OLLAMA_NUM_CTX:-4096}
+      OLLAMA_NUM_PREDICT: ${OLLAMA_NUM_PREDICT:-1024}
+      LOW_CONFIDENCE_THRESHOLD: ${LOW_CONFIDENCE_THRESHOLD:-0.66}
+      ODA_CONVERTER_PATH: ${ODA_CONVERTER_PATH:-}
+    ports:
+      - "8010:8010"
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0 --port 5173"
+    environment:
+      VITE_API_BASE_URL: http://127.0.0.1:8010/api
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules

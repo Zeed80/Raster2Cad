@@ -1,0 +1,40 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      APP_NAME: ${APP_NAME:-Raster2Cad API}
+      API_PREFIX: ${API_PREFIX:-/api}
+      DATA_DIR: /app/data
+      JOBS_DIR: /app/data/jobs
+      UPLOADS_DIR: /app/data/uploads
+      ARTIFACTS_DIR: /app/data/artifacts
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      VLLM_BASE_URL: ${VLLM_BASE_URL:-http://host.docker.internal:8000/v1}
+      ENABLE_LIVE_MODEL_CALLS: ${ENABLE_LIVE_MODEL_CALLS:-true}
+      ALLOW_FIXTURE_FALLBACK: ${ALLOW_FIXTURE_FALLBACK:-false}
+      DEFAULT_PROVIDER: ${DEFAULT_PROVIDER:-ollama}
+      DEFAULT_PRIMARY_MODEL: ${DEFAULT_PRIMARY_MODEL:-qwen3.5:35b}
+      PROVIDER_TIMEOUT_S: ${PROVIDER_TIMEOUT_S:-240}
+      OLLAMA_NUM_CTX: ${OLLAMA_NUM_CTX:-4096}
+      OLLAMA_NUM_PREDICT: ${OLLAMA_NUM_PREDICT:-1024}
+      LOW_CONFIDENCE_THRESHOLD: ${LOW_CONFIDENCE_THRESHOLD:-0.66}
+      ODA_CONVERTER_PATH: ${ODA_CONVERTER_PATH:-}
+    ports:
+      - "${BACKEND_PORT:-8010}:8010"
+    volumes:
+      - ./data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    restart: unless-stopped

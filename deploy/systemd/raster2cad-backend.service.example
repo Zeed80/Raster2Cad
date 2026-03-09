@@ -1,0 +1,16 @@
+[Unit]
+Description=Raster2Cad FastAPI backend
+After=network.target
+
+[Service]
+Type=simple
+User=raster2cad
+Group=raster2cad
+WorkingDirectory=/opt/raster2cad/backend
+EnvironmentFile=/etc/raster2cad/raster2cad.env
+ExecStart=/opt/raster2cad/backend/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8010
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,513 @@
+{
+  "domain": "piping",
+  "mode": "copy",
+  "sheet_name": "PZRG.png",
+  "page_quad": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1391.0,
+      0.0
+    ],
+    [
+      1391.0,
+      1235.0
+    ],
+    [
+      0.0,
+      1235.0
+    ]
+  ],
+  "objects": [
+    {
+      "object_id": "obj-1",
+      "kind": "object",
+      "label": "Object 1",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-2",
+      "kind": "object",
+      "label": "Object 2",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-3",
+      "kind": "object",
+      "label": "Object 3",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-4",
+      "kind": "object",
+      "label": "Object 4",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-5",
+      "kind": "object",
+      "label": "Object 5",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-6",
+      "kind": "object",
+      "label": "Object 6",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-7",
+      "kind": "object",
+      "label": "Object 7",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-8",
+      "kind": "object",
+      "label": "Object 8",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-9",
+      "kind": "object",
+      "label": "Object 9",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-10",
+      "kind": "object",
+      "label": "Object 10",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-11",
+      "kind": "object",
+      "label": "Object 11",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-12",
+      "kind": "object",
+      "label": "Object 12",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-13",
+      "kind": "object",
+      "label": "Object 13",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-14",
+      "kind": "object",
+      "label": "Object 14",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    },
+    {
+      "object_id": "obj-15",
+      "kind": "object",
+      "label": "Object 15",
+      "bbox": null,
+      "layer": "MAIN",
+      "confidence": 0.8,
+      "attributes": {},
+      "connections": []
+    }
+  ],
+  "texts": [
+    {
+      "text_id": "text-1",
+      "content": "",
+      "bbox": null,
+      "insert": null,
+      "height": 20.0,
+      "rotation": 0.0,
+      "style": "STANDARD",
+      "confidence": 0.9
+    },
+    {
+      "text_id": "text-1",
+      "content": "к НАМ-север φ1220",
+      "bbox": null,
+      "insert": null,
+      "height": 8.0,
+      "rotation": 0.0,
+      "style": "STANDARD",
+      "confidence": 0.8
+    },
+    {
+      "text_id": "text-2",
+      "content": "Шурф №5",
+      "bbox": null,
+      "insert": null,
+      "height": 8.0,
+      "rotation": 0.0,
+      "style": "STANDARD",
+      "confidence": 0.8
+    },
+    {
+      "text_id": "text-3",
+      "content": "к СКУ φ1220",
+      "bbox": null,
+      "insert": null,
+      "height": 8.0,
+      "rotation": 0.0,
+      "style": "STANDARD",
+      "confidence": 0.8
+    },
+    {
+      "text_id": "text-4",
+      "content": "2-2-1",
+      "bbox": null,
+      "insert": null,
+      "height": 8.0,
+      "rotation": 0.0,
+      "style": "STANDARD",
+      "confidence": 0.8
+    },
+    {
+      "text_id": "text-5",
+      "content": "2-2-1.4",
+      "bbox": null,
+      "insert": null,
+      "height": 8.0,
+      "rotation": 0.0,
+      "style": "STANDARD",
+      "confidence": 0.8
+    }
+  ],
+  "dimensions": [
+    {
+      "dimension_id": "dim-1",
+      "label": "D1",
+      "value": "2-2-1.4",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-2",
+      "label": "D2",
+      "value": "2-2-5.4",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-3",
+      "label": "D3",
+      "value": "3-2",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-4",
+      "label": "D4",
+      "value": "3-2.4",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-5",
+      "label": "D5",
+      "value": "25",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-6",
+      "label": "D6",
+      "value": "26",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-7",
+      "label": "D7",
+      "value": "29",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-8",
+      "label": "D8",
+      "value": "27",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-9",
+      "label": "D9",
+      "value": "28",
+      "bbox": null,
+      "confidence": 0.8
+    },
+    {
+      "dimension_id": "dim-1",
+      "label": "D1",
+      "value": "φ1220",
+      "bbox": null,
+      "confidence": 0.8
+    }
+  ],
+  "primitives": [
+    {
+      "primitive_id": "prim-1",
+      "kind": "polyline",
+      "layer": "MAIN",
+      "points": [],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-2",
+      "kind": "polyline",
+      "layer": "MAIN",
+      "points": [],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-3",
+      "kind": "polyline",
+      "layer": "MAIN",
+      "points": [],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-4",
+      "kind": "polyline",
+      "layer": "MAIN",
+      "points": [],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-1",
+      "kind": "line",
+      "layer": "MAIN",
+      "points": [
+        [
+          696.0,
+          45.0
+        ],
+        [
+          1391.0,
+          45.0
+        ]
+      ],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-2",
+      "kind": "line",
+      "layer": "MAIN",
+      "points": [
+        [
+          696.0,
+          185.0
+        ],
+        [
+          1391.0,
+          185.0
+        ]
+      ],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-3",
+      "kind": "line",
+      "layer": "MAIN",
+      "points": [
+        [
+          696.0,
+          320.0
+        ],
+        [
+          1391.0,
+          320.0
+        ]
+      ],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-4",
+      "kind": "line",
+      "layer": "MAIN",
+      "points": [
+        [
+          1320.0,
+          45.0
+        ],
+        [
+          1320.0,
+          618.0
+        ]
+      ],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-1",
+      "kind": "line",
+      "layer": "MAIN",
+      "points": [
+        [
+          150.0,
+          1235.0
+        ],
+        [
+          150.0,
+          850.0
+        ]
+      ],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-2",
+      "kind": "line",
+      "layer": "MAIN",
+      "points": [
+        [
+          250.0,
+          1100.0
+        ],
+        [
+          250.0,
+          1100.0
+        ]
+      ],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    },
+    {
+      "primitive_id": "prim-3",
+      "kind": "line",
+      "layer": "MAIN",
+      "points": [
+        [
+          175.0,
+          1100.0
+        ]
+      ],
+      "closed": false,
+      "center": null,
+      "radius": null,
+      "start_angle": null,
+      "end_angle": null,
+      "metadata": {}
+    }
+  ],
+  "unresolved_relations": [],
+  "confidence": 0.9374999999999999,
+  "notes": [
+    "Diagram shows IT-1, IT-2, IT-3 headers, condensate vessel, and trench/manhole connections to NA-M-S North and SC-C (Central Pumping Station).",
+    "Top-right section of P&ID showing main horizontal runs IT-1, IT-2, IT-3 and right-side valve stack. Vertical pipe runs down the right edge. Valve labels include 1-6, 1-4, 1-2. Instrument numbers visible on horizontal runs.",
+    "Parsed bottom-left section of the gas pipeline schematic. Coordinates are mapped to full-page space.",
+    "Extracted entities in safe rectangle. Legend and shovel labels included. Top pipes excluded.",
+    "Tile coordinates translated by (536, 458).",
+    "Copy-mode clean redraw parsed with 4 model passes and 11 geometry primitives.",
+    "Model returned insufficient clean primitives; geometry was rebuilt by fitted line/circle extraction and texts were kept from model output."
+  ]
+}
