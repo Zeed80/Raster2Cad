@@ -1,5 +1,9 @@
 # Raster2Cad
 
+[![CI](https://github.com/Zeed80/Raster2Cad/actions/workflows/ci.yml/badge.svg)](https://github.com/Zeed80/Raster2Cad/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-v0.1.0-blue.svg)](https://github.com/Zeed80/Raster2Cad/tree/v0.1.0)
+
 Raster2Cad is a multimodal CAD rebuild application for two workflows:
 
 - exact-copy redraw from raster or PDF source into deterministic CAD output
@@ -270,13 +274,17 @@ The workflow currently:
 - installs frontend dependencies with `npm ci`
 - runs `npm run build`
 
+## License
+
+This project is licensed under the MIT License. See `LICENSE`.
+
 ## Publish to GitHub
 
 Before the first public push:
 
 1. Review `.gitignore`
 2. Confirm that `data/`, logs, `.env.local`, and local artifacts are not staged
-3. Choose a license before making the repository public
+3. Review `LICENSE`, `CHANGELOG.md`, and deployment defaults before making the repository public
 
 Typical push flow if the repository already exists:
 
