@@ -1,19 +1,21 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+**RU** | [EN](CHANGELOG.en.md)
+
+Все заметные изменения в проекте фиксируются в этом файле.
 
 ## [0.1.0] - 2026-03-09
 
-### Added
+### Добавлено
 
-- initial public repository structure for backend, frontend, deployment, and CI
-- Docker and Docker Compose deployment paths
-- native deployment examples for `systemd`, `nginx`, and `ollama`
-- unified model catalog for `Ollama` and `vLLM`
-- Ollama runtime auto-tuning with manual override in the UI
-- persistent job, artifact, clarification, and chat-edit workflows
+- начальная публичная структура репозитория для backend, frontend, deployment и CI
+- Docker и Docker Compose сценарии развертывания
+- native deployment examples для `systemd`, `nginx` и `ollama`
+- единый каталог моделей для `Ollama` и `vLLM`
+- Ollama runtime auto-tuning с ручным override в UI
+- постоянные workflow для jobs, artifacts, clarification и chat-edit
 
-### Changed
+### Изменено
 
-- safer default Ollama runtime values for large models
-- documentation rewritten for public GitHub use
+- более безопасные Ollama defaults для крупных моделей
+- документация переписана под публичный GitHub-репозиторий

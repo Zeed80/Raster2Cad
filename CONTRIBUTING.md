@@ -1,42 +1,44 @@
 # Contributing
 
-## Scope
+**RU** | [EN](CONTRIBUTING.en.md)
 
-Contributions are welcome for:
+## Область изменений
 
-- bug fixes
-- deployment improvements
-- frontend and backend usability improvements
-- model-provider integrations
-- documentation
+Приветствуются pull request-ы по следующим направлениям:
 
-## Development
+- исправления багов
+- улучшения развертывания
+- улучшения usability во frontend и backend
+- интеграции с model provider-ами
+- документация
 
-Use one of the documented workflows from `README.md`:
+## Разработка
 
-- native backend plus native frontend
-- Docker Compose production-style stack
+Используйте один из workflow, описанных в `README.md` или `README.en.md`:
+
+- native backend + native frontend
+- production-style стек на Docker Compose
 - Dockerized development stack
 
-Before opening a pull request:
+Перед открытием pull request:
 
-1. build the frontend with `npm run build` in `frontend/`
-2. verify backend imports with `python -m compileall backend/app`
-3. do not commit runtime data, local logs, or `.env.local`
+1. соберите frontend через `npm run build` в `frontend/`
+2. проверьте backend-импорты через `python -m compileall backend/app`
+3. не коммитьте runtime data, локальные логи и `.env.local`
 
-## Pull Requests
+## Pull Request
 
-- keep changes focused
-- include a clear description of user-visible impact
-- mention environment assumptions when changing deployment behavior
-- update `README.md` and `.env.example` when configuration changes
+- держите изменения сфокусированными
+- описывайте user-visible impact
+- указывайте environment assumptions, если меняете deployment behavior
+- обновляйте `README.md`, `README.en.md` и `.env.example`, если меняется конфигурация
 
 ## Issues
 
-When reporting a bug, include:
+При создании bug report по возможности укажите:
 
-- provider: `Ollama` or `vLLM`
+- provider: `Ollama` или `vLLM`
 - model id
-- runtime settings if you changed `num_ctx`, `num_predict`, or `keep_alive`
-- source file type: PNG, JPG, TIFF, or PDF
-- backend error message or stack trace
+- runtime settings, если вы меняли `num_ctx`, `num_predict` или `keep_alive`
+- тип исходного файла: PNG, JPG, TIFF или PDF
+- backend error message или stack trace

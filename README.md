@@ -4,71 +4,79 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-v0.1.0-blue.svg)](https://github.com/Zeed80/Raster2Cad/tree/v0.1.0)
 
-Raster2Cad is a multimodal CAD rebuild application for two workflows:
+**RU** | [EN](README.en.md)
 
-- exact-copy redraw from raster or PDF source into deterministic CAD output
-- isometric reconstruction from engineering drawings
+Raster2Cad - это мультимодальное приложение для восстановления CAD по двум сценариям:
 
-The stack is split into:
+- точная перерисовка растрового изображения или PDF в детерминированный CAD-результат
+- построение изометрии по инженерному чертежу
 
-- `backend/`: FastAPI API, job queue, model orchestration, scene-graph pipeline, DXF/SVG/artifact generation
-- `frontend/`: React + Vite UI for uploads, model selection, runtime tuning, previews, clarifications, and chat edits
-- `data/`: persisted jobs, uploads, and artifacts
+Стек проекта разделен на:
 
-The application supports `Ollama` and `vLLM` model catalogs. For Ollama, the UI exposes model-specific auto-tuned runtime settings with manual override.
+- `backend/`: FastAPI API, очередь задач, оркестрацию моделей, scene-graph pipeline, генерацию DXF/SVG и артефактов
+- `frontend/`: React + Vite UI для загрузки файлов, выбора модели, настройки runtime, превью, уточнений и chat-edit
+- `data/`: сохраненные jobs, uploads и artifacts
 
-## Features
+Проект поддерживает каталоги моделей `Ollama` и `vLLM`. Для `Ollama` в UI доступны автоподбор runtime-параметров по модели и ручной override.
 
-- FastAPI backend with upload and job lifecycle endpoints
-- persistent file-backed jobs and artifact storage
-- unified model catalog across `Ollama` and `vLLM`
-- image and PDF normalization plus preview generation
-- scene-graph extraction and deterministic CAD compilation
-- DXF export and SVG isometric output
-- overlay and diff artifacts for QA
-- clarification flow for low-confidence parses
-- chat-based patching for scene-graph corrections
-- model-specific Ollama runtime tuning in the UI
+Дополнительная документация:
 
-## Repository Layout
+- [Русский](CONTRIBUTING.md) | [English](CONTRIBUTING.en.md)
+- [Русский](SECURITY.md) | [English](SECURITY.en.md)
+- [Русский](CHANGELOG.md) | [English](CHANGELOG.en.md)
 
-- `backend/`: FastAPI service and model pipeline
+## Возможности
+
+- FastAPI backend с endpoint-ами загрузки и жизненного цикла jobs
+- постоянное файловое хранение jobs и артефактов
+- единый каталог моделей для `Ollama` и `vLLM`
+- нормализация изображений и PDF с генерацией превью
+- извлечение scene graph и детерминированная CAD-компиляция
+- экспорт DXF и SVG-изометрии
+- overlay и diff-артефакты для QA
+- flow уточнений для low-confidence результатов
+- chat-based patching для исправления scene graph
+- model-specific Ollama runtime tuning в UI
+
+## Структура репозитория
+
+- `backend/`: FastAPI сервис и pipeline моделей
 - `frontend/`: React + Vite UI
 - `data/`: runtime data volume
-- `deploy/nginx/`: native Nginx example config
-- `deploy/ollama/`: native Ollama systemd override example
-- `deploy/systemd/`: native backend service example
-- `scripts/`: Windows helper launchers
+- `deploy/nginx/`: пример native-конфига Nginx
+- `deploy/ollama/`: пример systemd override для native Ollama
+- `deploy/systemd/`: пример systemd unit для backend
+- `scripts/`: Windows-скрипты для локального запуска
 - `docker-compose.yml`: production-style Docker deployment
 - `docker-compose.dev.yml`: Dockerized development workflow
 - `.github/workflows/ci.yml`: GitHub Actions CI
 
-## Requirements
+## Требования
 
-Minimum practical requirements depend on the selected model. For large Ollama models such as `qwen3.5:35b`, use a machine with a dedicated GPU and keep context conservative.
+Практические требования зависят от выбранной модели. Для крупных Ollama-моделей вроде `qwen3.5:35b` рекомендуется отдельный GPU и консервативный размер контекста.
 
-Typical requirements:
+Типичный набор:
 
 - Python `3.11+`
 - Node.js `20+`
 - npm `10+`
-- Docker Engine and Docker Compose plugin for container deployment
-- optional: `ODA File Converter` for DWG export
-- optional: native `Ollama` server or external `vLLM` endpoint
+- Docker Engine и Docker Compose plugin для контейнерного развертывания
+- опционально: `ODA File Converter` для экспорта DWG
+- опционально: native `Ollama` server или внешний `vLLM` endpoint
 
-## Quick Start
+## Быстрый старт
 
-### Recommended: Docker Compose plus native or external Ollama
+### Рекомендуемый вариант: Docker Compose + native или внешний Ollama
 
-This is the preferred deployment path for the app itself.
+Это основной предпочтительный способ развертывания приложения.
 
-1. Copy the root environment example:
+1. Скопируйте корневой пример окружения:
 
 ```bash
 cp .env.example .env
 ```
 
-2. Edit `.env` and set at least:
+2. Отредактируйте `.env` и задайте как минимум:
 
 ```env
 OLLAMA_BASE_URL=http://host.docker.internal:11434
@@ -76,31 +84,31 @@ DEFAULT_PROVIDER=ollama
 DEFAULT_PRIMARY_MODEL=qwen3.5:35b
 ```
 
-If Ollama runs on another machine, replace `host.docker.internal` with its LAN IP or DNS name.
+Если Ollama работает на другой машине, замените `host.docker.internal` на LAN IP или DNS-имя.
 
-3. Start the stack:
+3. Поднимите стек:
 
 ```bash
 docker compose up --build -d
 ```
 
-4. Open:
+4. Откройте:
 
 - frontend: `http://127.0.0.1:8080`
 - backend API: `http://127.0.0.1:8010`
 
-The frontend proxies `/api` and `/artifacts` to the backend through Nginx.
+Frontend проксирует `/api` и `/artifacts` в backend через Nginx.
 
 ### Dockerized development workflow
 
-Use this when you want hot reload inside containers:
+Используйте этот вариант, если нужен hot reload внутри контейнеров:
 
 ```bash
 cp .env.example .env
 docker compose -f docker-compose.dev.yml up --build
 ```
 
-Development URLs:
+URL для разработки:
 
 - frontend: `http://127.0.0.1:5173`
 - backend: `http://127.0.0.1:8010`
@@ -128,50 +136,50 @@ cp .env.example .env.local
 npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
-On Windows you can also use:
+На Windows можно использовать:
 
 - `scripts/start-backend.cmd`
 - `scripts/start-frontend.cmd`
 - `scripts/start-all.cmd`
 
-## Deployment Variants
+## Варианты развертывания
 
-### 1. App in Docker, Ollama native on the same host
+### 1. Приложение в Docker, Ollama native на том же хосте
 
-Set:
+Укажите:
 
 ```env
 OLLAMA_BASE_URL=http://host.docker.internal:11434
 ```
 
-This is the best compromise when you want clean app deployment but keep GPU inference outside Docker.
+Это лучший компромисс, если приложение хочется держать в контейнерах, а GPU inference оставить вне Docker.
 
-### 2. App in Docker, Ollama native on another server
+### 2. Приложение в Docker, Ollama native на другом сервере
 
-Set:
+Укажите:
 
 ```env
 OLLAMA_BASE_URL=http://192.168.x.x:11434
 ```
 
-Make sure the Ollama server is reachable from the Docker host and firewall rules allow access.
+Убедитесь, что Ollama reachable с Docker-хоста и firewall пропускает трафик.
 
-### 3. Full native deployment
+### 3. Полностью native deployment
 
-Use:
+Используйте:
 
 - `deploy/systemd/raster2cad-backend.service.example`
 - `deploy/nginx/raster2cad.conf.example`
 
-Suggested layout:
+Рекомендуемая схема:
 
-- backend as a `systemd` service on `127.0.0.1:8010`
-- frontend built once with `npm run build`
-- Nginx serving `frontend/dist` and proxying `/api` and `/artifacts`
+- backend как `systemd` service на `127.0.0.1:8010`
+- frontend собирается один раз через `npm run build`
+- Nginx раздает `frontend/dist` и проксирует `/api` и `/artifacts`
 
-### 4. Backend native, frontend static only
+### 4. Backend native, frontend как статический билд
 
-This is useful if the backend is installed on a workstation or server and the frontend is served by any static web server:
+Этот вариант подходит, если backend установлен на workstation или сервере, а frontend обслуживается любым static web server:
 
 ```bash
 cd frontend
@@ -179,81 +187,81 @@ npm install
 npm run build
 ```
 
-Then serve `frontend/dist` behind a reverse proxy that forwards:
+Далее раздавайте `frontend/dist` за reverse proxy, который перенаправляет:
 
 - `/api` -> backend
 - `/artifacts` -> backend
 
-## Docker Files Included
+## Включенные Docker-файлы
 
 - `docker-compose.yml`: production-style deployment
-- `docker-compose.dev.yml`: development containers with bind mounts
-- `backend/Dockerfile`: Python backend image
-- `frontend/Dockerfile`: static frontend image
-- `frontend/nginx.conf`: SPA plus API/artifact proxy
+- `docker-compose.dev.yml`: development containers с bind mounts
+- `backend/Dockerfile`: Python-образ backend
+- `frontend/Dockerfile`: образ статического frontend
+- `frontend/nginx.conf`: SPA + API/artifact proxy
 
-## Environment Variables
+## Переменные окружения
 
-### Root `.env` for Docker Compose
+### Корневой `.env` для Docker Compose
 
-See `.env.example`.
+См. `.env.example`.
 
-Most important keys:
+Наиболее важные ключи:
 
-- `OLLAMA_BASE_URL`: native or external Ollama endpoint
-- `VLLM_BASE_URL`: optional vLLM-compatible endpoint
-- `DEFAULT_PROVIDER`: default UI provider
-- `DEFAULT_PRIMARY_MODEL`: default parser model
-- `OLLAMA_NUM_CTX`: safe backend fallback context when no per-model hint is available
-- `OLLAMA_NUM_PREDICT`: safe backend fallback output budget
-- `ODA_CONVERTER_PATH`: optional path for DWG conversion
+- `OLLAMA_BASE_URL`: адрес native или внешнего Ollama
+- `VLLM_BASE_URL`: опциональный vLLM-compatible endpoint
+- `DEFAULT_PROVIDER`: provider по умолчанию в UI
+- `DEFAULT_PRIMARY_MODEL`: parser model по умолчанию
+- `OLLAMA_NUM_CTX`: безопасный fallback-контекст backend, если для модели нет отдельных hints
+- `OLLAMA_NUM_PREDICT`: безопасный fallback-лимит генерации backend
+- `ODA_CONVERTER_PATH`: опциональный путь к DWG converter
 
 ### Backend native `.env`
 
-See `backend/.env.example`.
+См. `backend/.env.example`.
 
 ### Frontend native `.env.local`
 
-See `frontend/.env.example`.
+См. `frontend/.env.example`.
 
-For local development the usual value is:
+Для локальной разработки обычно используется:
 
 ```env
 VITE_API_BASE_URL=http://127.0.0.1:8010/api
 ```
 
-For production behind Nginx, the frontend defaults to relative `/api`, so no extra variable is required.
+Для production за Nginx frontend по умолчанию использует относительный `/api`, поэтому отдельная переменная не обязательна.
 
-## Ollama Guidance
+## Настройка Ollama
 
-The application exposes model-specific runtime hints in the UI for Ollama:
+Для `Ollama` приложение показывает model-specific runtime hints прямо в UI:
 
 - `num_ctx`
 - `num_predict`
 - `keep_alive`
-- `auto_tune` mode with manual override
+- режим `auto_tune` с ручным override
 
-Example current auto-tune profile for `qwen3.5:35b`:
+Текущий auto-tune профиль для `qwen3.5:35b`:
 
 - `num_ctx=4096`
 - `num_predict=1024`
 - `keep_alive=15m`
 
-For native Ollama on Linux, a good starting `systemd` override is included at:
+Для native Ollama на Linux базовый `systemd` override есть в:
 
 - `deploy/ollama/override.conf.example`
 
-Typical workflow:
+Типовой workflow:
 
 ```bash
 sudo systemctl edit ollama
-# paste deploy/ollama/override.conf.example contents
+# вставьте содержимое deploy/ollama/override.conf.example
 sudo systemctl daemon-reload
 sudo systemctl restart ollama
 ollama ps
 ```
 
-## API Surface
+## API
 
 - `GET /api/models`
 - `POST /api/jobs`
@@ -265,28 +273,28 @@ ollama ps
 
 ## CI
 
-GitHub Actions is included in `.github/workflows/ci.yml`.
+GitHub Actions настроен в `.github/workflows/ci.yml`.
 
-The workflow currently:
+Сейчас workflow:
 
-- installs the backend package
-- compiles Python sources with `compileall`
-- installs frontend dependencies with `npm ci`
-- runs `npm run build`
+- устанавливает backend package
+- компилирует Python source через `compileall`
+- устанавливает frontend dependencies через `npm ci`
+- запускает `npm run build`
 
-## License
+## Лицензия
 
-This project is licensed under the MIT License. See `LICENSE`.
+Проект распространяется по MIT License. См. `LICENSE`.
 
-## Publish to GitHub
+## Публикация и релизы
 
-Before the first public push:
+Перед публичным релизом проверьте:
 
-1. Review `.gitignore`
-2. Confirm that `data/`, logs, `.env.local`, and local artifacts are not staged
-3. Review `LICENSE`, `CHANGELOG.md`, and deployment defaults before making the repository public
+1. `.gitignore`
+2. что `data/`, логи, `.env.local` и локальные артефакты не попадают в commit
+3. `LICENSE`, `CHANGELOG.md` и deployment defaults
 
-Typical push flow if the repository already exists:
+Базовый push flow:
 
 ```bash
 git add .
@@ -296,34 +304,34 @@ git remote add origin https://github.com/<owner>/raster2cad.git
 git push -u origin main
 ```
 
-## Troubleshooting
+## Устранение проблем
 
-### Frontend starts but cannot reach the API
+### Frontend запускается, но не видит API
 
-- for native dev, check `frontend/.env.local`
-- for Docker production, confirm the frontend is served through Nginx and using relative `/api`
-- verify backend is reachable on `127.0.0.1:8010`
+- для native dev проверьте `frontend/.env.local`
+- для Docker production убедитесь, что frontend раздается через Nginx и использует относительный `/api`
+- проверьте доступность backend на `127.0.0.1:8010`
 
-### Large Ollama model stalls
+### Большая Ollama-модель подвисает
 
-- reduce `num_ctx`
-- reduce `num_predict`
-- set `OLLAMA_NUM_PARALLEL=1`
-- set `OLLAMA_MAX_LOADED_MODELS=1`
-- verify `ollama ps` is not spilling heavily into CPU
+- уменьшите `num_ctx`
+- уменьшите `num_predict`
+- установите `OLLAMA_NUM_PARALLEL=1`
+- установите `OLLAMA_MAX_LOADED_MODELS=1`
+- проверьте через `ollama ps`, что модель не уходит слишком сильно в CPU
 
-### DWG export does not work
+### DWG export не работает
 
-DWG export requires `ODA File Converter` and a valid `ODA_CONVERTER_PATH`.
+Для DWG нужен `ODA File Converter` и корректный `ODA_CONVERTER_PATH`.
 
-### Docker backend cannot reach native Ollama
+### Docker backend не может достучаться до native Ollama
 
-- use `host.docker.internal` for same-host native Ollama
-- or point `OLLAMA_BASE_URL` to the remote machine IP
-- verify firewall and binding rules on the Ollama host
+- используйте `host.docker.internal` для Ollama на том же хосте
+- либо укажите удаленный IP в `OLLAMA_BASE_URL`
+- проверьте firewall и bind-настройки на Ollama-хосте
 
-## Notes
+## Примечания
 
-- The backend does not let the model emit DXF directly. Models return structured scene data, and CAD is compiled deterministically.
-- `data/` is intended as a runtime volume, not as source content for the repository.
-- Example files under `Example/` can be kept as demo material if you want sample assets in the public repository.
+- Backend не позволяет модели генерировать DXF напрямую. Модель возвращает структурированные scene data, а CAD строится детерминированно.
+- `data/` предназначен как runtime volume, а не как исходный контент репозитория.
+- Примеры в `Example/` можно оставить как demo-материалы публичного репозитория.

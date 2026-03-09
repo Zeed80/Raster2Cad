@@ -1,17 +1,19 @@
 # Security Policy
 
-## Supported Versions
+**RU** | [EN](SECURITY.en.md)
 
-Security fixes are currently applied to the latest `main` branch state.
+## Поддерживаемые версии
 
-## Reporting a Vulnerability
+Исправления безопасности сейчас вносятся в актуальное состояние ветки `main`.
 
-Do not open a public GitHub issue for a suspected security vulnerability.
+## Сообщение об уязвимости
 
-Instead:
+Не публикуйте предполагаемую уязвимость в открытом GitHub issue.
 
-1. describe the issue privately
-2. include reproduction details, affected deployment mode, and impact
-3. include whether the issue involves exposed model endpoints, file upload handling, or artifact serving
+Вместо этого:
 
-If a private reporting channel is added later, this document should be updated with the contact method.
+1. опишите проблему приватно
+2. приложите детали воспроизведения, deployment mode и оценку impact
+3. укажите, связан ли инцидент с model endpoint-ами, file upload handling или artifact serving
+
+Если позже появится отдельный private channel для security reports, этот документ нужно будет обновить.
